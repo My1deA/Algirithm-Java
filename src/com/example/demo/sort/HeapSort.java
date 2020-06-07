@@ -3,7 +3,7 @@ package com.example.demo.sort;
 public class HeapSort {
 
     public static void main(String[] args) {
-        int[] a=new int [] {9,7,8,3,4,5,6};
+        int[] a=new int [] {0,0,1,2,4,2,2,3,1,4};
         printAns(a);
         heapSort(a);
         printAns(a);
@@ -29,7 +29,7 @@ public class HeapSort {
         int t=a[index];
         //查询子节点
         for(int j=2*index+1;j<length;j=2*j+1){
-            if(a[j]<a[j+1] && j+1<length){//如果右结点比左结点要大 就选右节点
+            if(j+1<length &&  a[j]<a[j+1] ){//如果右结点比左结点要大 就选右节点
                 j++;
             }
             if(a[j]>t){//子节点比父节点大 将父节点赋值给子节点 并交换下标
