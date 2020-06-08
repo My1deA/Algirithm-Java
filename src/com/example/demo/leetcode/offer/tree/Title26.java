@@ -26,15 +26,20 @@ package com.example.demo.leetcode.offer.tree;
 public class Title26 {
 
     public static void main(String[] args) {
-        Solution26 solutio=new Solution26();
+        Solution26 solution=new Solution26();
     }
 
 
 }
 
-
 class Solution26 {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        return true;
+        return (A != null && B !=null) && (recur(A,B) || isSubStructure(A.left,B) || isSubStructure(A.right,B));
+    }
+
+    public boolean recur(TreeNode A, TreeNode B){
+        if(B == null) return true;
+        if(A == null || A.val != B.val)return false;
+        return recur(A.left,B.left) && recur(A.right,B.right);
     }
 }
