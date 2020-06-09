@@ -35,7 +35,7 @@ public class Title55_1 {
 class Solution55_1 {
     public int maxDepth(TreeNode root) {
         //if (root == null) return 0;
-        return computeDeep2(root);
+        return computeDeep(root);
     }
 
     public int computeDeep2(TreeNode node){
@@ -45,7 +45,7 @@ class Solution55_1 {
 
 
     public int computeDeep(TreeNode node){
-        if(node.left==null && node.right == null) return 1;
+        if(node== null) return 0;
         int left=1,right=1;
         if(node.left !=null){
             left=computeDeep(node.left)+1;
