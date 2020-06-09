@@ -21,6 +21,22 @@ public class Title28 {
 
 class Solution28 {
     public boolean isSymmetric(TreeNode root) {
-        return true;
+        if(root==null)return true;
+
+        return isEqual(root.left,root.right);
+    }
+
+    public boolean isEqual(TreeNode left,TreeNode right){
+        if(left == null && right == null){//left right 同时为空
+            return true;
+        }else if (left !=null && right!=null){//left 和 right 不为空
+            if(left.val == right.val){
+                return isEqual(left.left,right.right) && isEqual(left.right,right.left);
+            }else{//不相同
+                return false;
+            }
+        }else{//一个为空 一个不为空
+            return false;
+        }
     }
 }
