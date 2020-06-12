@@ -19,10 +19,48 @@ package com.example.demo.leetcode.offer.link;
 说明： 题目保证链表中节点的值互不相同
  */
 public class Title18 {
+    public static void main(String[] args) {
+        ListNode node1=new ListNode(4);
+        ListNode node2=new ListNode(5);
+        ListNode node3=new ListNode(1);
+        ListNode node4=new ListNode(9);
+        node1.next=node2;
+        node2.next=node3;
+        node3.next=node4;
+        Solution18 solution18=new Solution18();
+        ListNode cur=solution18.deleteNode(node1,4);
+        while(cur !=null){
+            System.out.print(cur.val+" ");
+            cur=cur.next;
+        }
+    }
 }
 
 class Solution18 {
     public ListNode deleteNode(ListNode head, int val) {
-        return null;
+        if(head.val == val) return head.next;
+        ListNode pre=head;
+        ListNode next=head.next;
+        while(next != null){
+            if(next.val == val){
+                pre.next=next.next;
+                next=next.next;
+            }
+            //不等于null 就下一个
+            if(next !=null){
+                pre=next;
+                next=next.next;
+            }
+        }
+       /* while(next != null && next.val != val){
+            pre=next;
+            next=next.next;
+        }
+        //防止输入 非链表数值
+        if(next !=null){
+            pre.next=next.next;
+        }*/
+
+        return head;
     }
 }
