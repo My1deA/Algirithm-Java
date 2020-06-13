@@ -17,8 +17,25 @@ package com.example.demo.leetcode.offer.math;
 提示 2 <= n <= 58
  */
 public class Title14_2 {
+    public static void main(String[] args) {
+        Solution14_2 solution14_2=new Solution14_2();
+        System.out.println(solution14_2.cuttingRope(127));
+    }
 }
 
 class Solution14_2 {
-
+    public int cuttingRope(int n) {
+        if(n==1||n==2){
+            return 1;
+        }
+        if(n==3){
+            return 2;
+        }
+        long sum=1;
+        while(n>4){
+            sum=sum*3%1000000007;
+            n=n-3;
+        }
+        return (int)(sum*n%1000000007);
+    }
 }
