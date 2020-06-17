@@ -18,12 +18,6 @@ package com.example.demo.leetcode.offer.tree;
 输出: 5
 解释: 节点 5 和节点 4 的最近公共祖先是节点 5。因为根据定义最近公共祖先节点可以为节点本身。
  */
-public class Title68_2 {
-    public static void main(String[] args) {
-
-    }
-}
-
 class Solution68_2 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root==p || root == q) return root;
@@ -33,5 +27,11 @@ class Solution68_2 {
         if(left ==  null) return right;
         if(right == null) return left;
         return root;
+    }
+}
+
+public class Title68_2 {
+    public static void main(String[] args) {
+
     }
 }

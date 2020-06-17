@@ -24,13 +24,6 @@ import java.util.Map;
 提示：s.length <= 40000
 
  */
-public class Tilte48 {
-    public static void main(String[] args) {
-        Solution48 solution48=new Solution48();
-
-    }
-}
-
 class Solution48 {
     public int lengthOfLongestSubstring(String s) {
         Map<Character,Integer> map=new HashMap<>();
@@ -46,6 +39,12 @@ class Solution48 {
     }
 }
 
+public class Tilte48 {
+    public static void main(String[] args) {
+        Solution48 solution48=new Solution48();
+
+    }
+}
 
 
 

@@ -18,12 +18,6 @@ package com.example.demo.leetcode.offer.bit;
 输出：31
 解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 '1'
  */
-public class Title15 {
-    public static void main(String[] args) {
-        Solution solution=new Solution();
-        System.out.println(solution.hammingWeight(00000000000000000000000010000000));
-    }
-}
 class Solution {
     /*
     *如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，
@@ -48,3 +42,9 @@ class Solution {
     }
 }
 
+public class Title15 {
+    public static void main(String[] args) {
+        Solution solution=new Solution();
+        System.out.println(solution.hammingWeight(00000000000000000000000010000000));
+    }
+}

@@ -24,8 +24,6 @@ import java.util.Map;
 Node.random 为空（null）或指向链表中的节点。
 节点数目不超过 1000
  */
-public class Title35 {
-}
 class Solution {
 
     //链表操作
@@ -81,4 +79,7 @@ class Solution {
 
         return map.get(head);
     }
+}
+
+public class Title35 {
 }

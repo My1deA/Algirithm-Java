@@ -1,6 +1,7 @@
 package com.example.demo.leetcode.offer.stack;
 
 
+import java.util.LinkedList;
 /*  面试题59 - I. 滑动窗口的最大值 (双端队列 hard)
 给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。
 
@@ -19,21 +20,6 @@ package com.example.demo.leetcode.offer.stack;
 
 你可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小。
  */
-
-import java.util.LinkedList;
-
-public class Title59_1 {
-    public static void main(String[] args) {
-        int[] nums = {};
-        Solution solution = new Solution();
-        // Solution2 solution2=new Solution2();
-        int[] ans = solution.maxSlidingWindow(nums, 0);
-        for (int i = 0; i < ans.length; i++) {
-            System.out.print(ans[i] + " ");
-        }
-    }
-}
-
 class Solution {
     /*
     借助一个辅助队列，从头遍历数组，根据如下规则进行入队列或出队列操作：
@@ -51,7 +37,6 @@ class Solution {
         int[] ans = new int[nums.length - k + 1];
         int index = 0;
 
-
         LinkedList<Integer> queue = new LinkedList<>();
         for (int i = 0; i < nums.length; i++) {
             if(!queue.isEmpty()){
@@ -63,13 +48,23 @@ class Solution {
                 }
             }
             queue.offer(i);
-
             if(i+1>=k){
                 ans[index++]=nums[queue.peek()];
             }
         }
-
         return ans;
+    }
+}
+
+public class Title59_1 {
+    public static void main(String[] args) {
+        int[] nums = {};
+        Solution solution = new Solution();
+        // Solution2 solution2=new Solution2();
+        int[] ans = solution.maxSlidingWindow(nums, 0);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.print(ans[i] + " ");
+        }
     }
 }
 
@@ -97,3 +92,4 @@ class Solution2 {
         return ans;
     }
 }
+

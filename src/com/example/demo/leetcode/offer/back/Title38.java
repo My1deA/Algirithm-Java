@@ -1,5 +1,7 @@
 package com.example.demo.leetcode.offer.back;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 /* 面试题38. 字符串的排列
 输入一个字符串，打印出该字符串中字符的所有排列。
 
@@ -8,9 +10,6 @@ package com.example.demo.leetcode.offer.back;
 输出：["abc","acb","bac","bca","cab","cba"]
 
  */
-
-import java.util.ArrayList;
-import java.util.HashSet;
 
 class Solution38 {
     private ArrayList<String> list= new ArrayList<>();

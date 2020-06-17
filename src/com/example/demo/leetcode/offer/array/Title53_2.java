@@ -13,14 +13,6 @@ package com.example.demo.leetcode.offer.array;
  
 限制：1 <= 数组长度 <= 10000
  */
-public class Title53_2 {
-    public static void main(String[] args) {
-        int[] nums={0,1,2,3,4,5,6,7,9};
-        Solution53_2 solution53_2=new Solution53_2();
-        System.out.println(solution53_2.missingNumber(nums));
-    }
-}
-
 class Solution53_2 {
     public int missingNumber(int[] nums) {
         int i=0,j=nums.length-1;
@@ -30,5 +22,13 @@ class Solution53_2 {
             else j=mid-1;//前面出现不符合 下标的值
         }
         return i;
+    }
+}
+
+public class Title53_2 {
+    public static void main(String[] args) {
+        int[] nums={0,1,2,3,4,5,6,7,9};
+        Solution53_2 solution53_2=new Solution53_2();
+        System.out.println(solution53_2.missingNumber(nums));
     }
 }

@@ -19,16 +19,6 @@ import java.util.Stack;
         1 <= values <= 10000
         最多会对 appendTail、deleteHead 进行 10000 次调用
 */
-public class Title09 {
-
-    public static void main(String[] args) {
-        CQueue cQueue=new CQueue();
-        cQueue.appendTail(3);
-        System.out.println(cQueue.deleteHead());
-        System.out.println(cQueue.deleteHead());
-    }
-}
-
 
 class CQueue {
     private Stack<Integer> stack1;
@@ -59,6 +49,16 @@ class CQueue {
         }else {
             return stack2.pop();
         }
+    }
+}
+
+public class Title09 {
+
+    public static void main(String[] args) {
+        CQueue cQueue=new CQueue();
+        cQueue.appendTail(3);
+        System.out.println(cQueue.deleteHead());
+        System.out.println(cQueue.deleteHead());
     }
 }
 

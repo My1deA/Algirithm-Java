@@ -11,14 +11,6 @@ s = "abaccdeff"
 
 s = "" 返回 " "
  */
-public class Title50 {
-    public static void main(String[] args) {
-        String str="abaccdeff";
-        Solution50 solution50=new Solution50();
-        System.out.println(solution50.firstUniqChar(str));
-    }
-}
-
 class Solution50 {
     public char firstUniqChar(String s) {
         char ans = ' ';
@@ -41,5 +33,13 @@ class Solution50 {
             }
         }
         return ans;
+    }
+}
+
+public class Title50 {
+    public static void main(String[] args) {
+        String str="abaccdeff";
+        Solution50 solution50=new Solution50();
+        System.out.println(solution50.firstUniqChar(str));
     }
 }

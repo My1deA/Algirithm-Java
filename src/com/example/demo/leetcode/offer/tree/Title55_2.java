@@ -31,25 +31,7 @@ import java.util.Random;
  4   4
 返回 false
  */
-public class Title55_2 {
-    public static void main(String[] args) {
-        TreeNode node1=new TreeNode(1);
-        TreeNode node2=new TreeNode(2);
-        TreeNode node3=new TreeNode(2);
-        TreeNode node4=new TreeNode(3);
-        TreeNode node5=new TreeNode(3);
-        TreeNode node6=new TreeNode(4);
-        TreeNode node7=new TreeNode(4);
-        node1.left=node2;
-        node1.right=node3;
-        node2.left=node4;
-        node2.right=node5;
-        node4.left=node6;
-        node4.right=node7;
-        Solution55_2 solution55_2=new Solution55_2();
-        System.out.println(solution55_2.isBalanced(node1));
-    }
-}
+
 
 class Solution55_2 {
     public boolean isBalanced(TreeNode root) {
@@ -71,5 +53,25 @@ class Solution55_2 {
         left=left+getDeep(node.left);
         right=right+getDeep(node.right);
         return left>right?left:right;
+    }
+}
+
+public class Title55_2 {
+    public static void main(String[] args) {
+        TreeNode node1=new TreeNode(1);
+        TreeNode node2=new TreeNode(2);
+        TreeNode node3=new TreeNode(2);
+        TreeNode node4=new TreeNode(3);
+        TreeNode node5=new TreeNode(3);
+        TreeNode node6=new TreeNode(4);
+        TreeNode node7=new TreeNode(4);
+        node1.left=node2;
+        node1.right=node3;
+        node2.left=node4;
+        node2.right=node5;
+        node4.left=node6;
+        node4.right=node7;
+        Solution55_2 solution55_2=new Solution55_2();
+        System.out.println(solution55_2.isBalanced(node1));
     }
 }

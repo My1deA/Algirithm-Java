@@ -17,58 +17,6 @@ import java.util.Arrays;
 [0,0,1,2,4,2,2,3,1,4]
 8
  */
-public class Title40 {
-    public static void main(String[] args) {
-        int[] arr={0,0,1,2,4,2,2,3,1,4};
-        /*Solution solution=new Solution();
-        int[] ans=solution.getLeastNumbers(arr,10);
-        System.out.println(Arrays.toString(ans));*/
-
-        Solution2 solution=new Solution2();
-        int[] ans=solution.getLeastNumbers(arr,10);
-        System.out.println(Arrays.toString(ans));
-    }
-}
-
-class Solution2 {
-    //快排
-    public int[] getLeastNumbers(int[] arr, int k) {
-        quickSort(arr,0,arr.length-1);
-
-        return Arrays.copyOfRange(arr,0,k);
-    }
-
-    public void quickSort(int[] arr,int left,int right){
-        if(left>=right)return;
-        int i=left;
-        int j=right;
-        int t=arr[i];
-        while(j>i){
-            while (j>i && arr[j] >= t){//找出比 t 小的数
-                j--;
-            }
-            while(j>i && arr[i] <= t){//找出比 t 大的数
-                i++;
-            }
-            swap(arr,i,j);
-        }
-        //此时a[i]比t小
-        arr[left]=arr[i];
-        arr[i]=t;
-
-        //继续快排
-        quickSort(arr,left,i-1);
-        quickSort(arr,i+1,right);
-    }
-
-    public void swap(int[] arr,int i,int j){
-        int t=arr[i];
-        arr[i]=arr[j];
-        arr[j]=t;
-    }
-}
-
-
 class Solution {
     //堆排
     public int[] getLeastNumbers(int[] arr, int k) {
@@ -99,6 +47,59 @@ class Solution {
             }
         }
         arr[index]=t;
+    }
+
+    public void swap(int[] arr,int i,int j){
+        int t=arr[i];
+        arr[i]=arr[j];
+        arr[j]=t;
+    }
+}
+
+public class Title40 {
+    public static void main(String[] args) {
+        int[] arr={0,0,1,2,4,2,2,3,1,4};
+        /*Solution solution=new Solution();
+        int[] ans=solution.getLeastNumbers(arr,10);
+        System.out.println(Arrays.toString(ans));*/
+
+        Solution2 solution=new Solution2();
+        int[] ans=solution.getLeastNumbers(arr,10);
+        System.out.println(Arrays.toString(ans));
+    }
+}
+
+
+
+class Solution2 {
+    //快排
+    public int[] getLeastNumbers(int[] arr, int k) {
+        quickSort(arr,0,arr.length-1);
+
+        return Arrays.copyOfRange(arr,0,k);
+    }
+
+    public void quickSort(int[] arr,int left,int right){
+        if(left>=right)return;
+        int i=left;
+        int j=right;
+        int t=arr[i];
+        while(j>i){
+            while (j>i && arr[j] >= t){//找出比 t 小的数
+                j--;
+            }
+            while(j>i && arr[i] <= t){//找出比 t 大的数
+                i++;
+            }
+            swap(arr,i,j);
+        }
+        //此时a[i]比t小
+        arr[left]=arr[i];
+        arr[i]=t;
+
+        //继续快排
+        quickSort(arr,left,i-1);
+        quickSort(arr,i+1,right);
     }
 
     public void swap(int[] arr,int i,int j){

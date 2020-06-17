@@ -21,26 +21,6 @@ import java.util.Stack;
 [[],[2147483646],[2147483646],[2147483647],[],[],[],[],[],[],[2147483647],[],[],[-2147483648],[],[],[],[]]
 
  */
-public class Title30 {
-    public static void main(String[] args) {
-        MinStack minStack = new MinStack();
-        minStack.push(2147483646);
-        minStack.push(2147483646);
-        minStack.push(2147483647);
-        System.out.println(minStack.top());
-        minStack.pop();
-        System.out.println(minStack.min());
-        minStack.pop();
-        System.out.println(minStack.min());
-        minStack.pop();
-        minStack.push(-2147483648);
-        System.out.println(minStack.top());
-        System.out.println(minStack.min());
-        minStack.pop();
-        System.out.println(minStack.min());
-    }
-}
-
 class MinStack {
 
     private Integer minValue;
@@ -80,5 +60,26 @@ class MinStack {
 
     public int min() {
         return minValue;
+    }
+}
+
+
+public class Title30 {
+    public static void main(String[] args) {
+        MinStack minStack = new MinStack();
+        minStack.push(2147483646);
+        minStack.push(2147483646);
+        minStack.push(2147483647);
+        System.out.println(minStack.top());
+        minStack.pop();
+        System.out.println(minStack.min());
+        minStack.pop();
+        System.out.println(minStack.min());
+        minStack.pop();
+        minStack.push(-2147483648);
+        System.out.println(minStack.top());
+        System.out.println(minStack.min());
+        minStack.pop();
+        System.out.println(minStack.min());
     }
 }

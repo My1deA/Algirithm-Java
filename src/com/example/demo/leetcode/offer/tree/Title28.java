@@ -16,9 +16,6 @@ package com.example.demo.leetcode.offer.tree;
    \   \
    3    3
  */
-public class Title28 {
-}
-
 class Solution28 {
     public boolean isSymmetric(TreeNode root) {
         if(root==null)return true;
@@ -39,4 +36,6 @@ class Solution28 {
             return false;
         }
     }
+}
+public class Title28 {
 }

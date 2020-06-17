@@ -38,13 +38,6 @@ import com.sun.org.apache.regexp.internal.RE;
 解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
      因此返回 INT_MIN (−231) 。
  */
-public class Title67 {
-    public static void main(String[] args) {
-        Solution67 solution67=new Solution67();
-        System.out.println(solution67.strToInt("20000000000000000000"));
-    }
-}
-
 class Solution67 {
 
     public int strToInt(String str) {
@@ -109,5 +102,12 @@ class Solution67 {
         }
 
         return Integer.valueOf(stringBuffer.toString());
+    }
+}
+
+public class Title67 {
+    public static void main(String[] args) {
+        Solution67 solution67=new Solution67();
+        System.out.println(solution67.strToInt("20000000000000000000"));
     }
 }

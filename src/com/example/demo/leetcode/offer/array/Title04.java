@@ -21,21 +21,6 @@ package com.example.demo.leetcode.offer.array;
 
 
  */
-public class Title04 {
-    public static void main(String[] args) {
-        int[][] a= {
-                {1,   4,  7, 11, 15},
-                {2,   5,  8, 12, 19},
-                {3,   6,  9, 16, 22},
-                {10, 13, 14, 17, 24},
-                {18, 21, 23, 26, 30}
-        };
-        a=new int[0][0];
-        Solution04 solution04=new Solution04();
-        System.out.println(solution04.findNumberIn2DArray(a,20));
-    }
-
-}
 
 class Solution04 {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
@@ -59,4 +44,20 @@ class Solution04 {
         }
         return false;
     }
+}
+
+public class Title04 {
+    public static void main(String[] args) {
+        int[][] a= {
+                {1,   4,  7, 11, 15},
+                {2,   5,  8, 12, 19},
+                {3,   6,  9, 16, 22},
+                {10, 13, 14, 17, 24},
+                {18, 21, 23, 26, 30}
+        };
+        a=new int[0][0];
+        Solution04 solution04=new Solution04();
+        System.out.println(solution04.findNumberIn2DArray(a,20));
+    }
+
 }

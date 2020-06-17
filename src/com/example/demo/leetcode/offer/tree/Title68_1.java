@@ -21,12 +21,6 @@ package com.example.demo.leetcode.offer.tree;
 输出: 2
 解释: 节点 2 和节点 4 的最近公共祖先是 2, 因为根据定义最近公共祖先节点可以为节点本身。。
  */
-public class Title68_1 {
-    public static void main(String[] args) {
-
-    }
-}
-
 class Solution68_1 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         while(root!=null){
@@ -42,5 +36,11 @@ class Solution68_1 {
             return root;
         }
         return null;
+    }
+}
+
+public class Title68_1 {
+    public static void main(String[] args) {
+
     }
 }

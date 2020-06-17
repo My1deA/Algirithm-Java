@@ -26,23 +26,6 @@ import java.util.Queue;
 
 
 */
-public class Title59_2 {
-    public static void main(String[] args) {
-        MaxQueue maxQueue=new MaxQueue();
-        maxQueue.push_back(3);
-        maxQueue.push_back(2);
-        maxQueue.push_back(2);
-        maxQueue.push_back(1);
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
-        System.out.println(maxQueue.max_value());
-    }
-}
-
 class MaxQueue {
     /*
     具体方法是使用一个双端队列 dequedeque，在每次入队时，如果 dequedeque 队尾元素小于即将入队的元素 valuevalue，
@@ -82,5 +65,22 @@ class MaxQueue {
             }
             return t;
         }
+    }
+}
+
+public class Title59_2 {
+    public static void main(String[] args) {
+        MaxQueue maxQueue=new MaxQueue();
+        maxQueue.push_back(3);
+        maxQueue.push_back(2);
+        maxQueue.push_back(2);
+        maxQueue.push_back(1);
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+        System.out.println(maxQueue.max_value());
     }
 }

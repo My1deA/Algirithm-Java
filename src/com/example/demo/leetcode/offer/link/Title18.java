@@ -18,24 +18,6 @@ package com.example.demo.leetcode.offer.link;
  
 说明： 题目保证链表中节点的值互不相同
  */
-public class Title18 {
-    public static void main(String[] args) {
-        ListNode node1=new ListNode(4);
-        ListNode node2=new ListNode(5);
-        ListNode node3=new ListNode(1);
-        ListNode node4=new ListNode(9);
-        node1.next=node2;
-        node2.next=node3;
-        node3.next=node4;
-        Solution18 solution18=new Solution18();
-        ListNode cur=solution18.deleteNode(node1,4);
-        while(cur !=null){
-            System.out.print(cur.val+" ");
-            cur=cur.next;
-        }
-    }
-}
-
 class Solution18 {
     public ListNode deleteNode(ListNode head, int val) {
         if(head.val == val) return head.next;
@@ -62,5 +44,23 @@ class Solution18 {
         }*/
 
         return head;
+    }
+}
+
+public class Title18 {
+    public static void main(String[] args) {
+        ListNode node1=new ListNode(4);
+        ListNode node2=new ListNode(5);
+        ListNode node3=new ListNode(1);
+        ListNode node4=new ListNode(9);
+        node1.next=node2;
+        node2.next=node3;
+        node3.next=node4;
+        Solution18 solution18=new Solution18();
+        ListNode cur=solution18.deleteNode(node1,4);
+        while(cur !=null){
+            System.out.print(cur.val+" ");
+            cur=cur.next;
+        }
     }
 }

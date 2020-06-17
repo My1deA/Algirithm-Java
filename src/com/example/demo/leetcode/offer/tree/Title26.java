@@ -23,14 +23,6 @@ package com.example.demo.leetcode.offer.tree;
 输入：A = [3,4,5,1,2], B = [4,1]
 输出：true
  */
-public class Title26 {
-
-    public static void main(String[] args) {
-        Solution26 solution=new Solution26();
-    }
-
-
-}
 
 class Solution26 {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
@@ -41,5 +33,12 @@ class Solution26 {
         if(B == null) return true;
         if(A == null || A.val != B.val)return false;
         return recur(A.left,B.left) && recur(A.right,B.right);
+    }
+}
+
+public class Title26 {
+
+    public static void main(String[] args) {
+        Solution26 solution=new Solution26();
     }
 }

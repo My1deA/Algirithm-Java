@@ -22,18 +22,6 @@ A   F H    Z
   E
  */
 
-import java.util.concurrent.locks.ReentrantLock;
-
-public class Title07 {
-    public static void main(String[] args) {
-        Solution solution=new Solution();
-        int [] preorder = {3,9,20,15,7};
-        int [] inorder = {9,3,15,20,7};
-        solution.buildTree(preorder,inorder);
-    }
-}
-
-
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return createNode(0,preorder.length-1,0,inorder.length-1,preorder,inorder);
@@ -62,5 +50,14 @@ class Solution {
         //bl+(index-il) end-1   index+1 ir
 
         return node;
+    }
+}
+
+public class Title07 {
+    public static void main(String[] args) {
+        Solution solution=new Solution();
+        int [] preorder = {3,9,20,15,7};
+        int [] inorder = {9,3,15,20,7};
+        solution.buildTree(preorder,inorder);
     }
 }

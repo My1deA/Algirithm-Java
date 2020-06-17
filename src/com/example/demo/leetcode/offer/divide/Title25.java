@@ -11,13 +11,6 @@ package com.example.demo.leetcode.offer.divide;
 0 <= 链表长度 <= 1000
 
  */
-
-public class Title25 {
-    public static void main(String[] args) {
-
-    }
-}
-
 class Solution25 {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -80,5 +73,12 @@ class Solution25 {
             l2=l2.next;
         }
         return head;
+    }
+}
+
+
+public class Title25 {
+    public static void main(String[] args) {
+
     }
 }

@@ -11,6 +11,24 @@ import java.util.LinkedList;
  
 限制：0 <= 节点个数 <= 5000
  */
+class Solution24 {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) return null;
+        ListNode tail=null;
+        ListNode pre=head;
+        ListNode next=head.next;
+        while(next != null){
+            pre.next=tail;
+            tail=pre;
+            pre=next;
+            next=next.next;
+        }
+        pre.next=tail;
+        tail=pre;
+        return tail;
+    }
+}
+
 public class Title24 {
     public static void main(String[] args) {
         ListNode node1=new ListNode(1);
@@ -28,23 +46,5 @@ public class Title24 {
             System.out.print(cur.val+" ");
             cur=cur.next;
         }
-    }
-}
-
-class Solution24 {
-    public ListNode reverseList(ListNode head) {
-        if(head == null) return null;
-        ListNode tail=null;
-        ListNode pre=head;
-        ListNode next=head.next;
-        while(next != null){
-            pre.next=tail;
-            tail=pre;
-            pre=next;
-            next=next.next;
-        }
-        pre.next=tail;
-        tail=pre;
-        return tail;
     }
 }

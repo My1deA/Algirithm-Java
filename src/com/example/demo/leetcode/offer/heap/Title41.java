@@ -31,16 +31,6 @@ double findMedian() - 返回目前所有元素的中位数
 
 
  */
-public class Title41 {
-    public static void main(String[] args) {
-        MedianFinder medianFinder=new MedianFinder();
-        medianFinder.addNum(1);
-        medianFinder.addNum(2);
-        System.out.println(medianFinder.findMedian());
-        medianFinder.addNum(3);
-        System.out.println(medianFinder.findMedian());
-    }
-}
 
 /*
 用大顶堆+小顶堆方法，可以看作大顶堆是普通班，小顶堆是实验班。数量上时刻保持 小顶-大顶<=1（两堆相等或者小顶比大顶多一个）。
@@ -81,5 +71,16 @@ class MedianFinder {
         }else{
             return (double) (maxHeap.peek()+minHeap.peek())/2;
         }
+    }
+}
+
+public class Title41 {
+    public static void main(String[] args) {
+        MedianFinder medianFinder=new MedianFinder();
+        medianFinder.addNum(1);
+        medianFinder.addNum(2);
+        System.out.println(medianFinder.findMedian());
+        medianFinder.addNum(3);
+        System.out.println(medianFinder.findMedian());
     }
 }

@@ -16,14 +16,6 @@ import java.util.Arrays;
 输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 输出：[1,2,3,4,8,12,11,10,9,5,6,7]
  */
-public class Title29 {
-    public static void main(String[] args) {
-        int[] [] matrix = {{1,2,3},{4,5,6},{7,8,9}};
-        Solution29 solution29=new Solution29();
-        System.out.println(Arrays.toString(solution29.spiralOrder(matrix)));
-    }
-}
-
 class Solution29 {
     public int[] spiralOrder(int[][] matrix) {
         if(matrix.length==0)return new int[0];
@@ -46,5 +38,13 @@ class Solution29 {
         }
 
         return ans;
+    }
+}
+
+public class Title29 {
+    public static void main(String[] args) {
+        int[] [] matrix = {{1,2,3},{4,5,6},{7,8,9}};
+        Solution29 solution29=new Solution29();
+        System.out.println(Arrays.toString(solution29.spiralOrder(matrix)));
     }
 }

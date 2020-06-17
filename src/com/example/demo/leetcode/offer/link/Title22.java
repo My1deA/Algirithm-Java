@@ -9,6 +9,24 @@ package com.example.demo.leetcode.offer.link;
 
 返回链表 4->5.
  */
+class Solution22 {
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        if(head == null || k == 0)return null;
+        int n=0;
+        ListNode next=head;
+        while(next!=null){
+            next=next.next;
+            n++;
+        }
+        n=n-k;
+        next=head;
+        while(n--!= 0){
+            next=next.next;
+        }
+        return next;
+    }
+}
+
 public class Title22 {
     public static void main(String[] args) {
         ListNode node1=new ListNode(1);
@@ -26,23 +44,5 @@ public class Title22 {
             System.out.print(cur.val+" ");
             cur=cur.next;
         }
-    }
-}
-
-class Solution22 {
-    public ListNode getKthFromEnd(ListNode head, int k) {
-        if(head == null || k == 0)return null;
-        int n=0;
-        ListNode next=head;
-        while(next!=null){
-            next=next.next;
-            n++;
-        }
-        n=n-k;
-        next=head;
-        while(n--!= 0){
-            next=next.next;
-        }
-        return next;
     }
 }

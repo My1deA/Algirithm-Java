@@ -12,16 +12,6 @@ package com.example.demo.leetcode.offer.sort;
 输出结果可能非常大，所以你需要返回一个字符串而不是整数
 拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0
  */
-
-public class Title45 {
-    public static void main(String[] args) {
-        int[] nums={3,30,34,5,9};
-        Solution solution=new Solution();
-        //solution.traverse(nums,0);
-        System.out.println(solution.minNumber(nums));
-    }
-}
-
 class Solution {
     public String minNumber(int[] nums) {
         String [] strings=new String[nums.length];
@@ -84,5 +74,15 @@ class Solution {
         int t=nums[i];
         nums[i]=nums[j];
         nums[j]=t;
+    }
+}
+
+
+public class Title45 {
+    public static void main(String[] args) {
+        int[] nums={3,30,34,5,9};
+        Solution solution=new Solution();
+        //solution.traverse(nums,0);
+        System.out.println(solution.minNumber(nums));
     }
 }

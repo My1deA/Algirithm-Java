@@ -14,14 +14,6 @@ import java.util.HashMap;
 限制：
 2 <= n <= 100000
  */
-public class Title03 {
-    public static void main(String[] args) {
-        Solution03 solution03=new Solution03();
-        int [] nums={2, 3, 1, 0, 2, 5, 3};
-        System.out.println(solution03.findRepeatNumber(nums));
-    }
-}
-
 class Solution03 {
     public int findRepeatNumber(int[] nums) {
         HashMap<Integer,Integer> map=new HashMap<>();
@@ -33,5 +25,13 @@ class Solution03 {
             }
         }
         return 0;
+    }
+}
+
+public class Title03 {
+    public static void main(String[] args) {
+        Solution03 solution03=new Solution03();
+        int [] nums={2, 3, 1, 0, 2, 5, 3};
+        System.out.println(solution03.findRepeatNumber(nums));
     }
 }
