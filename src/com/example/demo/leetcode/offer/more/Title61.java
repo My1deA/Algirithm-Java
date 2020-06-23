@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.offer.more.hard;
+package com.example.demo.leetcode.offer.more;
 
 
 /* 剑指 Offer 61. 扑克牌中的顺子
