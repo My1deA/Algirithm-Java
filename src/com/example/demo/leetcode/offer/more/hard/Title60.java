@@ -19,6 +19,10 @@ class Solution60 {
         double[] ans=new double[5*n+1];
         double all=Math.pow(6,n);
 
+        for(int i=1;i<=6;i++) {
+            dp[1][i] = 1;
+        }
+
         for(int i=1;i<=n;i++){
             for(int j=i;j<=6*n;j++){
                 for(int k=1;k<=6;k++){
