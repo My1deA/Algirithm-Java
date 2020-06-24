@@ -22,7 +22,7 @@ n 是 32 位有符号整数，其数值范围是 [−231, 231 − 1] 。
 public class Title16 {
     public static void main(String[] args) {
         Solution16 solution16=new Solution16();
-        System.out.println(solution16.myPow(2,10));
+        System.out.println(solution16.myPow2(2,-2));
     }
 }
 
