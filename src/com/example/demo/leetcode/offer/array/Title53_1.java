@@ -13,14 +13,6 @@ package com.example.demo.leetcode.offer.array;
 
 限制：0 <= 数组长度 <= 50000
  */
-public class Title53_1 {
-    public static void main(String[] args) {
-        int[] nums = {2,2};
-        Solution53_1 solution51_1=new Solution53_1();
-        System.out.println(solution51_1.search(nums,2));
-    }
-}
-
 class Solution53_1 {
     //int left=0,right=nums.length-1; while (left<=right) right=mid-1; left=mid+1;
     public int search(int[] nums, int target) {
@@ -54,5 +46,13 @@ class Solution53_1 {
             return count;
         }
         return 0;
+    }
+}
+
+public class Title53_1 {
+    public static void main(String[] args) {
+        int[] nums = {2,2};
+        Solution53_1 solution51_1=new Solution53_1();
+        System.out.println(solution51_1.search(nums,2));
     }
 }

@@ -12,12 +12,6 @@ package com.example.demo.leetcode.offer.dp;
 但矩阵中不包含字符串“abfb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格子。
 
  */
-public class Title12 {
-
-    public static void main(String[] args) {
-        char[][] board={{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-    }
-}
 
 class Solution12 {
     public boolean exist(char[][] board, String word) {
@@ -39,5 +33,12 @@ class Solution12 {
         boolean res= dfs(board,word,i+1,j,k+1) || dfs(board,word,i-1,j,k+1) ||dfs(board,word,i,j+1,k+1) ||dfs(board,word,i,j-1,k+1);
         board[i][j]=t;
         return res;
+    }
+}
+
+public class Title12 {
+
+    public static void main(String[] args) {
+        char[][] board={{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
     }
 }
