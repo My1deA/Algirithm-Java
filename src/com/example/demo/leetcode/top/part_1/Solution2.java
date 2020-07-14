@@ -1,6 +1,6 @@
-package com.example.demo.leetcode.hot.part_1;
+package com.example.demo.leetcode.top.part_1;
 
-import com.example.demo.leetcode.hot.common.ListNode;
+import com.example.demo.leetcode.top.common.ListNode;
 
 import java.util.Stack;
 

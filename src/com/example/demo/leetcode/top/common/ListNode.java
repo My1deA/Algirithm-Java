@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.hot.common;
+package com.example.demo.leetcode.top.common;
 
 public class ListNode {
     public int val;
