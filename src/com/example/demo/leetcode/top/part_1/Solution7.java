@@ -1,6 +1,6 @@
 package com.example.demo.leetcode.top.part_1;
 
-public class Solution6 {
+public class Solution7 {
 
     public int reverse(int x) {
 
@@ -17,7 +17,7 @@ public class Solution6 {
     }
 
     public static void main(String[] args) {
-        Solution6 solution6=new Solution6();
+        Solution7 solution6=new Solution7();
         System.out.println(solution6.reverse(-321));
 
     }
