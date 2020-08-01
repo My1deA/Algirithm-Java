@@ -1,7 +1,7 @@
 package com.example.demo.algorithm.part_1;
 
 
-//17964 水桶打水
+//17964 水桶打水 （贪心）
 /*问题描述
         　有n个人排队到r个水龙头去打水，他们装满水桶的时间t1、t2………..tn为整数且各不相等，应如何安排他们的打水顺序才能使他们总共花费的时间最少？
 
@@ -23,13 +23,13 @@ import java.util.Comparator;
 public class T_17964 {
 
     public static int getTime(int[] a,int[] b){
-
+        //排序 小在前
         sort(a);
         System.out.println(Arrays.toString(a));
         int sum=0;
 
         for(int i=0;i<a.length;i++){
-            //求出每个水喉
+            //求出每个水喉 最小等待时间
             int min=b[0];
             int index=0;
             for(int j=0;j<b.length;j++){
