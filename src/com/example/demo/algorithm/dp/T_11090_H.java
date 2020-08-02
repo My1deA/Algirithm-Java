@@ -81,131 +81,138 @@ package com.example.demo.algorithm.dp;
 
 /*
 
+int getNum(int s,int len);
+int maxProduct(int m,int n);
+int minSum(int m,int n);
 
-#include <iostream>
-using namespace std;
-void MaxMin(int n, int m, int* num);
-int w(int h, int t, int* num);
 
-int main() {
-	int n, m, s;
-	cin >> n >> m >> s;
-	int* num = new int[n + 1];
-	int ss = s;
-	for (int i = n; i >= 1; i--) {
-		num[i] = ss % 10;
-		ss = ss / 10;
-	}
-	MaxMin(n, m, num);
-	delete[] num;
-	return 0;
-}
+int main()
+{
+    //cout << "Hello world!" << endl;
+    int m,n,s;
+    cin>>m>>n>>s;
+    for(int i=m;i>=1;i--){
+        int t=s%10;
+        s=s/10;
+        a[i]=t;
 
-void MaxMin(int n, int m, int* num) { //最大m段乘积,最小m段和
-	int** f = new int*[n + 1]; //最大m段乘积,f[n][m]为所求
-	for (int i = 0; i <= n; i++)
-		f[i] = new int[m + 1];
+    }
 
-	int** fs = new int*[n + 1]; //存储最大m段乘积分割位置
-	for (int i = 0; i <= n; i++)
-		fs[i] = new int[m + 1];
+    //cout<<getNum(1,2)<<endl;
+    //cout<<getNum(3,2)<<endl;
+    cout<<maxProduct(m,n)<<endl;
+    cout<<minSum(m,n)<<endl;
 
-	int* fa = new int[m + 1]; //存储最大m段乘积的每个值
 
-	int** t = new int*[n + 1]; //最小m段和,t[n][m]为所求
-	for (int i = 0; i <= n; i++)
-		t[i] = new int[m + 1];
-
-	int** ts = new int*[n + 1]; //存储最小m段和分割位置
-	for (int i = 0; i <= n; i++)
-		ts[i] = new int[m + 1];
-
-	int* ta = new int[m + 1]; //存储最小m段和的每个值
-
-	for (int i = 1; i <= n; i++) {
-		f[i][1] = w(1, i, num);
-		ts[i][1] = 1;
-		t[i][1] = w(1, i, num);
-		fs[i][1] = 1;
-	}
-
-	for (int j = 2; j <= m; j++) {
-		for (int i = j; i <= n; i++) {
-			f[i][j] = f[j - 1][j - 1] * w(j, i - j + 1, num);
-			fs[i][j] = j;
-			t[i][j] = t[j - 1][j - 1] + w(j, i - j + 1, num);
-			ts[i][j] = j;
-			for (int k = j; k <= i - 1; k++) {
-				int tMax = f[k][j - 1] * w(k + 1, i - k, num);
-				if (f[i][j] < tMax) {
-					f[i][j] = tMax;
-					fs[i][j] = k + 1;
-				}
-				int tMin = t[k][j - 1] + w(k + 1, i - k, num);
-				if (t[i][j] > tMin) {
-					t[i][j] = tMin;
-					ts[i][j] = k + 1;
-				}
-			}
-		}
-	}
-	cout << f[n][m] << " " << t[n][m] << endl;
-	int i = n;
-	int k = n + 1;
-	for (int j = m; j >= 1; j--) {
-		fa[j] = w(fs[i][j], k - fs[i][j], num);
+    int fa[1000];
+    int i = m;
+	int k = m + 1;
+    for (int j = n; j >= 1; j--) {
+		fa[j] = getNum(fs[i][j], k - fs[i][j]);
 		k = fs[i][j]; //记录上次的断点
 		i = fs[i][j] - 1; //新的i值要减1
 	}
-	for (int i = 1; i <= m; i++) {
+
+	for (int i = 1; i <= n; i++) {
 		cout << fa[i];
-		if (i != m)
+		if (i != n)
 			cout << "*";
+		else
+            cout << "=";
 	}
-	cout << "=" << f[n][m] << endl;
-	i = n;
-	k = n + 1;
-	for (int j = m; j >= 1; j--) {
-		//cout << "i "<< i << " j " << j << " " << ts[i][j] << endl;
-		ta[j] = w(ts[i][j], k - ts[i][j], num);
-		k = ts[i][j]; //记录上次的断点
-		i = ts[i][j] - 1; //新的i值要减1
-	}
-	for (int i = 1; i <= m; i++) {
-		cout << ta[i];
-		if (i != m)
-			cout << "+";
-	}
-	cout << "=" << t[n][m] << endl;
 
-	for (int i = 0; i <= n; i++)
-		delete[] f[i];
-	delete[] f;
 
-	for (int i = 0; i <= n; i++)
-		delete[] fs[i];
-	delete[] fs;
-
-	delete[] fa;
-
-	for (int i = 0; i <= n; i++)
-		delete[] t[i];
-	delete[] t;
-
-	for (int i = 0; i <= n; i++)
-		delete[] ts[i];
-	delete[] ts;
-
-	delete[] ta;
+    return 0;
 }
 
-int w(int h, int t, int* num) {
-	int result = 0;
-	for (int i = 0; i < t; i++) {
-		result = result * 10 + num[h + i];
-	}
-	return result;
+
+int getNum(int s,int len){
+    int sum=0;
+    for(int i=s;i<s+len;i++){
+        sum=sum*10+a[i];
+    }
+    return sum;
 }
+
+int maxProduct(int m,int n){
+
+    int f[m][n]={{0}};
+    int fs[m][n]={{0}};
+
+    for(int i=1;i<=m;i++){
+        f[i][1]=getNum(1,i);
+    }
+
+    for(int i=1;i<=m;i++){
+        for(int j=2;j<=n;j++){
+            int Max=0;
+            for(int k=j-1;k<=i-1;k++){
+               int t=f[k][j-1]*getNum(k+1,i-k);
+                if(Max<t){
+                    Max=t;
+                    fs[i][j] = k + 1;
+                }
+            }
+            f[i][j]=Max;
+            //cout<<i<<" "<<j<<endl;
+        }
+    }
+
+    return f[m][n];
+}
+
+
+int minSum(int m,int n){
+
+    int f[m][n]={{0}};
+    int fs[m][n]={{0}};
+
+    for(int i=1;i<=m;i++){
+        f[i][1]=getNum(1,i);
+    }
+
+    for(int i=1;i<=m;i++){
+        for(int j=2;j<=n;j++){
+            int Min=99999;
+            for(int k=j-1;k<=i-1;k++){
+               int t=f[k][j-1]+getNum(k+1,i-k);
+                if(Min>t){
+                    Min=t;
+                    //if(j==n)cout<<k<<endl;
+                    fs[i][j]=k+1;
+                }
+            }
+            f[i][j]=Min;
+            //cout<<Max<<endl;
+        }
+    }
+
+
+    int fa[1000];
+    int i=m;
+    int k=m+1;
+    for(int j=n;j>=0;j--){
+        fa[j]=getNum(fs[i][j],k-fs[i][j]);
+        k=fs[i][j];
+        i=fs[i][j]-1;
+    }
+
+    for (int i = 1; i <= n; i++) {
+		cout << fa[i];
+		if (i == n)
+			cout << "=";
+		else
+            cout << "+";
+
+	}
+
+
+
+    return f[m][n];
+
+}
+
+
  */
 
 public class T_11090_H {

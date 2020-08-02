@@ -9,48 +9,87 @@ package com.example.demo.algorithm.recursion;
         0 <= 数组长度 <= 50000*/
 public class T_11087_H {
 
-    public int countInversion(int []arr,int left,int right) {
-        if(left >= right) {
-            return 0;					//递归出口
+    public int reversePairs(int[] nums) {
+        int len = nums.length;
+
+        if (len < 2) {
+            return 0;
         }
-        int mid = (int)((left+right)/2);
-        int countLeft = countInversion(arr,left,mid);     //先左边递归
-        int countRight = countInversion(arr,mid+1,right);     //再右边递归
-        int countMerge = mergeInversion(arr,left,mid,right);	 	//调用排序函数
-        return countLeft+countRight+countMerge;
+
+        int[] copy = new int[len];
+        for (int i = 0; i < len; i++) {
+            copy[i] = nums[i];
+        }
+
+        int[] temp = new int[len];
+        return reversePairs(copy, 0, len - 1, temp);
     }
-    public int mergeInversion(int []arr,int left,int mid, int right) {
-        int i = left ,j = mid+1 ,tempIndex = left;				//i指向左半边，j指向右半边
+
+    /**
+     * nums[left..right] 计算逆序对个数并且排序
+     *
+     * @param nums
+     * @param left
+     * @param right
+     * @param temp
+     * @return
+     */
+    private int reversePairs(int[] nums, int left, int right, int[] temp) {
+        if (left == right) {
+            return 0;
+        }
+
+        int mid = left + (right - left) / 2;
+        int leftPairs = reversePairs(nums, left, mid, temp);
+        int rightPairs = reversePairs(nums, mid + 1, right, temp);
+
+        if (nums[mid] <= nums[mid + 1]) {
+            return leftPairs + rightPairs;
+        }
+
+        int crossPairs = mergeAndCount(nums, left, mid, right, temp);
+        return leftPairs + rightPairs + crossPairs;
+    }
+
+    /**
+     * nums[left..mid] 有序，nums[mid + 1..right] 有序
+     *
+     * @param nums
+     * @param left
+     * @param mid
+     * @param right
+     * @param temp
+     * @return
+     */
+    private int mergeAndCount(int[] nums, int left, int mid, int right, int[] temp) {
+        for (int i = left; i <= right; i++) {
+            temp[i] = nums[i];
+        }
+
+        int i = left;
+        int j = mid + 1;
+
         int count = 0;
-        int []tempArr = arr.clone();
-        while(i <= mid && j <= right) {
-            if(tempArr[i]>tempArr[j]) {
-                arr[tempIndex] = tempArr[j];
-                count = count+right-j+1;    //统计逆序对个数
+        for (int k = left; k <= right; k++) {
+
+            if (i == mid + 1) {
+                nums[k] = temp[j];
                 j++;
-                tempIndex++;
-            }
-            else {
-                arr[tempIndex] = tempArr[i];
+            } else if (j == right + 1) {
+                nums[k] = temp[i];
                 i++;
-                tempIndex++;
+            } else if (temp[i] <= temp[j]) {
+                nums[k] = temp[i];
+                i++;
+            } else {
+                nums[k] = temp[j];
+                j++;
+                count += (mid - i + 1);
             }
-        }
-        if(i<=mid)
-            count--;				//因为当右半边完时，左半边判断的指针未后移，在下面第一个while处会多自增一次，所以在这里先自减
-        while(i<=mid) {				//左边还没有完，右边已完
-            arr[tempIndex] = tempArr[i];
-            count++;
-            i++;
-            tempIndex++;
-        }
-        while(j<=right){
-            arr[tempIndex] = tempArr[j];  //右边还没有完，左边已完
-            j++;
-            tempIndex++;
         }
         return count;
     }
+
 
 
 }
