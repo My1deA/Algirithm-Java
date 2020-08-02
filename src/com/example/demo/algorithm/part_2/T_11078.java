@@ -1,6 +1,6 @@
 package com.example.demo.algorithm.part_2;
 
-// 11078 不能移动的石子合并
+// 11078 不能移动的石子合并  dp
 /*Description
         做如下两个模型的石子合并，如下模型石子都不能移动出列，且合并都仅发生在相邻两堆石子中：
         （1）第一个模型：一行排列且相邻合并
@@ -38,7 +38,7 @@ package com.example.demo.algorithm.part_2;
         第一个石子合并模型,和书上3.1节的矩阵连乘问题类似.
         假设m[i,j]为合并石子ai…aj, 1≤i≤j≤n，所得到的最小得分，若没有“合并”这个动作，则为0。原问题所求的合并最小值即为m[1,n]。
         递推公式如下,其中min表示求最小,sum表示求和.
-        (1) m[i,j]=0, ifi=j
+        (1) m[i,j]=0, if i=j
         (2)m[i,j]=min{m[i,k]+m[k+1][j] | for i<=k<j} + sum{a(t) | for i<=t<=j}, if i<j
         至于求最大值完全同理.
         至于第二个石子合并的环行模型,完全可以转化为第一个模型来求解.
@@ -46,4 +46,121 @@ package com.example.demo.algorithm.part_2;
 */
 
 public class T_11078 {
+
+    //最小值
+    public static int line_min(int[] sum,int n){
+        int[][] a=new int[n+1][n+1];
+        //初始化最小值
+        for(int i=1;i<=n;i++){
+            a[i][i]=0;
+        }
+        //构建 右上三角
+        for(int r=2;r<=n;r++){
+            //i 每次循环都+1
+            for(int i=1;i<=n-r+1;i++){
+                // i j 每次向右下角移动一位
+                int j=r+i-1;
+                //a[i][i]初始化为0 a[i+1][j] 是为i+1-j的分值 sum[j]-sum[i-1]求出对应递增的sum
+                int min=a[i][i]+a[i+1][j]+sum[j]-sum[i-1];
+                for(int k=i+1;k<j;k++){
+                    int t=a[i][k]+a[k+1][j]+sum[j]-sum[i-1];
+                    if(t<min){
+                        min=t;
+                    }
+                }
+                a[i][j]=min;
+            }
+
+        }
+        return a[1][n];
+    }
+
+
+    //最小值
+    public static int line_max(int[] sum,int n){
+        int[][] a=new int[n+1][n+1];
+        //初始化最小值
+        for(int i=1;i<=n;i++){
+            a[i][i]=0;
+        }
+        //构建 右上三角
+        for(int r=2;r<=n;r++){
+            //i 每次循环都+1
+            for(int i=1;i<=n-r+1;i++){
+                // i j 每次向右下角移动一位
+                int j=r+i-1;
+                //a[i][i]初始化为0 a[i+1][j] 是为i+1-j的分值 sum[j]-sum[i-1]求出对应递增的sum
+                int max=a[i][i]+a[i+1][j]+sum[j]-sum[i-1];
+                for(int k=i+1;k<j;k++){
+                    int t=a[i][k]+a[k+1][j]+sum[j]-sum[i-1];
+                    if(t>max){
+                        max=t;
+                    }
+                }
+                a[i][j]=max;
+            }
+
+        }
+        return a[1][n];
+    }
+
+
+    public static void Circle_Min_Max(int[] t,int[] sum,int n,int min,int max){
+
+        for(int i=2;i<=n;i++){
+            //每次 修改值 遍历的 t 和 sum
+            change(t,sum,n);
+
+            int tmin=line_min(sum,n);
+            if(tmin<min){
+                min=tmin;
+            }
+
+            int tmax=line_max(sum,n);
+            if(tmax>max){
+                max=tmax;
+            }
+        }
+
+        System.out.println(min+" "+max);
+
+    }
+
+    //每次 修改值 遍历的 t 和 sum
+    public static void change(int[] t,int[] sum,int n){
+        int t1=t[n];
+        for(int i=n;i>1;i--){
+            t[i]=t[i-1];
+        }
+        t[1]=t1;
+
+        for(int i=1;i<=n;i++){
+            if(i==1){
+                sum[i]=t[i];
+            }else{
+                sum[i]=sum[i-1]+t[i];
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int n=4;
+        int[] t={0,9,4,4,5};
+        int[] sum=new int[n+1];
+        for(int i=1;i<=n;i++){
+            if(i==1){
+                sum[i]=t[i];
+            }else{
+                sum[i]=sum[i-1]+t[i];
+            }
+        }
+        int min=line_min(sum,n);
+        int max=line_max(sum,n);
+        System.out.println(min);
+        System.out.println(max);
+
+        //
+        Circle_Min_Max(t,sum,n,min,max);
+
+    }
 }
