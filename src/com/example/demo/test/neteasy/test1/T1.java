@@ -1,4 +1,4 @@
-package com.example.demo.test.neteasy;
+package com.example.demo.test.neteasy.test1;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
