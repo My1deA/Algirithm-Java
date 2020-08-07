@@ -9,7 +9,7 @@ package com.example.demo.algorithm.recursion;
         0 <= 数组长度 <= 50000*/
 public class T_11087_H {
 
-    public int reversePairs(int[] nums) {
+    public static int reversePairs(int[] nums) {
         int len = nums.length;
 
         if (len < 2) {
@@ -34,7 +34,7 @@ public class T_11087_H {
      * @param temp
      * @return
      */
-    private int reversePairs(int[] nums, int left, int right, int[] temp) {
+    private static int reversePairs(int[] nums, int left, int right, int[] temp) {
         if (left == right) {
             return 0;
         }
@@ -61,7 +61,7 @@ public class T_11087_H {
      * @param temp
      * @return
      */
-    private int mergeAndCount(int[] nums, int left, int mid, int right, int[] temp) {
+    private static int mergeAndCount(int[] nums, int left, int mid, int right, int[] temp) {
         for (int i = left; i <= right; i++) {
             temp[i] = nums[i];
         }
@@ -90,6 +90,9 @@ public class T_11087_H {
         return count;
     }
 
-
+    public static void main(String[] args) {
+        int[] n={7,5,6,4};
+        System.out.println(reversePairs(n));
+    }
 
 }
