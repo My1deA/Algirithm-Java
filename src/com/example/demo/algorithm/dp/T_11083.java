@@ -57,7 +57,7 @@ Description
 */
 
 public class T_11083 {
-                            //体积    重量     数量    价值     背包体积重量
+                                    //体积    重量     数量    价值     背包体积重量
     public static int getBag(int n,int[] v,int[] w,int[] c,int[] p,int V,int W){
         int[][][] a=new int[n+1][V+1][W+1];
 
