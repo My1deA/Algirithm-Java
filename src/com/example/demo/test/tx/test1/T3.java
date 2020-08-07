@@ -45,7 +45,7 @@ public class T3 {
 
 
     public static void reverse(int[] a,int i,int j){
-        for(int k=0;k<(i+j)/2;k++){
+        for(int k=0;k<(j-i)/2;k++){
             int t=a[i+k];
             a[i+k]=a[j-k];
             a[j-k]=t;
@@ -69,13 +69,16 @@ public class T3 {
         for(int i=0;i<m;i++){
             b[i]=scanner.nextInt();
             int[] t= Arrays.copyOf(a,a.length);
-            for(int j=0;j<n;j=j=i*b[i]*2){
-
+            for(int j=0;j<n/Math.pow(2,b[i]);j++){
+                reverse(b,j*(int)Math.pow(2,b[i]),(j+1)*(int)Math.pow(2,b[i])-1);
             }
+            ans[i]=mergeSort(b,0, b.length-1);
         }
 
 
-
+        for(int i=0;i<m;i++){
+            System.out.print(ans[i]+" ");
+        }
 
     }
 
