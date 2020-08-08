@@ -1,5 +1,7 @@
 package com.example.demo.test.my;
 
+import java.net.Socket;
+
 public class TestStringPool {
 
     /**
