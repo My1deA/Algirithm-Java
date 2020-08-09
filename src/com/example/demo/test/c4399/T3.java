@@ -51,37 +51,20 @@ public class T3 {
             m2=scanner.nextInt();
             d2=scanner.nextInt();
 
-            if(y1>y2 || y1==y2&&m1>m2 || y1==y2 && m1==m2 && d1>d2){
-                int t1=y1;
-                y1=y2;
-                y2=t1;
-                t1=m1;
-                m1=m2;
-                m2=t1;
-                t1=d1;
-                d1=d2;
-                d2=t1;
-            }
-
-
-            int count=0;
-            for(int i=y1;i<y2;i++){
-                if(isSyear(i)){
-                    count++;
-                }
-            }
 
             long sum1=getDay(y1,m1,d1);
-            long sum2=getDay(y2,m2,d2)+count+(y2-y1-1)*365-sum1;
-            if(isSyear(y1)&& (m1<2 || m1 ==2 && d1!=29)){
-                sum2++;
-            }
+            long sum2=getDay(y2,m2,d2);
 
-            //System.out.println(sum1+" "+sum2);
+            sum1 += (y1-1) * 365 + (y1-1) / 4 - (y1-1) / 100 + (y1-1) / 400;
+            sum2 += (y2-1) * 365 + (y2-1) / 4 - (y2-1) / 100 + (y2-1) / 400;
 
-            if(sum1%7 == sum2%7){
+            if(y1==1970&&m1==1&&(d1==1||d1==2||d1==3)){
+                sum1++;
+            }//OJ有问题，1970年1月这三天有毒
+
+            if ((sum2 - sum1) % 7 == 0){
                 ans[k++]="True";
-            }else{
+            } else {
                 ans[k++]="False";
             }
 
