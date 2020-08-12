@@ -22,48 +22,91 @@ package com.example.demo.test.vip.test2;
 
 */
 class T2 {
-    boolean[][] rows = new boolean[9][9];
-    boolean[][] cols = new boolean[9][9];
-    boolean[][] boxes = new boolean[9][9];
-
     public void solveSudoku(char[][] board) {
+        /**
+         * 记录某行，某位数字是否已经被摆放
+         */
+        boolean[][] row = new boolean[9][9];
+        /**
+         * 记录某列，某位数字是否已经被摆放
+         */
+        boolean[][] col = new boolean[9][9];
+        /**
+         * 记录某 3x3 宫格内，某位数字是否已经被摆放
+         */
+        boolean[][] block = new boolean[9][9];
+
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') continue;
-                rows[i][board[i][j] - '1'] = true;
-                cols[j][board[i][j] - '1'] = true;
-                boxes[(i / 3) * 3 + j / 3][board[i][j] - '1'] = true;
+                if (board[i][j] != '.') {
+                    int num = board[i][j] - '1';
+                    row[i][num] = true;
+                    col[j][num] = true;
+                    // blockIndex = i / 3 * 3 + j / 3，取整
+                    block[i / 3 * 3 + j / 3][num] = true;
+                }
             }
         }
-
-        boolean b = solve(board, 0);
-
+        dfs(board, row, col, block, 0, 0);
     }
 
-    public boolean solve(char[][] board, int index) {
-        if (index == 81) return true;
-
-        int r = index / 9;
-        int c = index % 9;
-        int b = (r / 3) * 3 + c / 3;
-
-        if (board[r][c] != '.') {
-            return solve(board, index + 1);
-        } else {
-            for (int i = 0; i < 9; i++) {
-                if (!rows[r][i] && !cols[c][i] && !boxes[b][i]) {
-                    board[r][c] = (char) (i + '1');
-                    rows[r][i] = true;
-                    cols[c][i] = true;
-                    boxes[b][i] = true;
-                    if (solve(board, index + 1)) return true;
-                    rows[r][i] = false;
-                    cols[c][i] = false;
-                    boxes[b][i] = false;
-                    board[r][c] = '.';
+    private boolean dfs(char[][] board, boolean[][] row, boolean[][] col, boolean[][] block, int i, int j) {
+        // 找寻空位置
+        while (board[i][j] != '.') {
+            if (++j >= 9) {
+                i++;
+                j = 0;
+            }
+            if (i >= 9) {
+                return true;
+            }
+        }
+        for (int num = 0; num < 9; num++) {
+            int blockIndex = i / 3 * 3 + j / 3;
+            if (!row[i][num] && !col[j][num] && !block[blockIndex][num]) {
+                // 递归
+                board[i][j] = (char) ('1' + num);
+                row[i][num] = true;
+                col[j][num] = true;
+                block[blockIndex][num] = true;
+                if (dfs(board, row, col, block, i, j)) {
+                    return true;
+                } else {
+                    // 回溯
+                    row[i][num] = false;
+                    col[j][num] = false;
+                    block[blockIndex][num] = false;
+                    board[i][j] = '.';
                 }
             }
         }
         return false;
+    }
+
+    private void printBoard(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        char[][] board = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+        T2 solution = new T2();
+        solution.printBoard(board);
+        solution.solveSudoku(board);
+        solution.printBoard(board);
     }
 }
