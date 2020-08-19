@@ -22,7 +22,7 @@ void matrixchain()
 		for(i=1;i<=n-r+1;i++)
 		{
 			j=i+r-1;
-			m[i][j]=m[i+1][j]+p[i-1]*p[i]*p[j];//对m[][]开始赋值
+			m[i][j]=m[i][j]+m[i+1][j]+p[i-1]*p[i]*p[j];//对m[][]开始赋值
 			s[i][j]=i;//s[][]存储各子问题的决策点
 			for(k=i+1;k<j;k++)//寻找最优值
 			{
