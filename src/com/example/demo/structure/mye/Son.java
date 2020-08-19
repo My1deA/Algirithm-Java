@@ -1,4 +1,4 @@
-package com.example.demo.mye;
+package com.example.demo.structure.mye;
 
 public class Son extends Father{
     @Override
