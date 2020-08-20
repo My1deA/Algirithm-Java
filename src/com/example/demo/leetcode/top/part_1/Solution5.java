@@ -1,6 +1,18 @@
 package com.example.demo.leetcode.top.part_1;
 
 //https://leetcode-cn.com/problems/longest-palindromic-substring/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-bao-gu/
+/*
+给定一个字符串 s，找到 s 中最长的回文子串。你可以假设s 的最大长度为 1000。
+
+        示例 1：
+        输入: "babad"
+        输出: "bab"
+        注意: "aba" 也是一个有效答案。
+
+        示例 2：
+        输入: "cbbd"
+        输出: "bb"
+*/
 //      b   a   b   a   b
 //  b   1       1       1   5
 //  a       1       1       3
