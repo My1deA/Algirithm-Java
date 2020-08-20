@@ -5,25 +5,21 @@ package com.example.demo.leetcode.offer.tree;
 
 例如输入：
 
-     4
-   /   \
-  2     7
- / \   / \
-1   3 6   9
+     4
+    / \
+   2   7
+ / \  / \
+1  3  6 9
 镜像输出：
 
-     4
-   /   \
-  7     2
- / \   / \
-9   6 3   1
+    4
+   / \
+  7   2
+/ \  / \
+9  6 3 1
  */
 
-public class Title27{
-    public static void main(String[] args) {
 
-    }
-}
 
 class Solution27 {
     public TreeNode mirrorTree(TreeNode root) {
@@ -41,6 +37,13 @@ class Solution27 {
 
         swap(node.left);
         swap(node.right);
+
+    }
+}
+
+public class Title27{
+
+    public static void main(String[] args) {
 
     }
 }

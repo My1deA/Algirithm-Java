@@ -1,78 +1,77 @@
 package com.example.demo.algorithm.track;
 
-public class PicColor {
-}
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 
 /*
-import java.util.*;
-public class mzhuose {
+【输入样例】
+5 8 4
+1 2
+1 3
+1 4
+2 3
+2 4
+2 5
+3 4
+4 5
 
-	public static void main(String[] args) {
-		Scanner in=new Scanner(System.in);
-		int [][] a=new int[100][100];
-		int [] b=new int[100];
-		System.out.println("请输入点的数目和边的数目");
-		int n=in.nextInt();
-		int m=in.nextInt();
-		System.out.println("边的连接");
-		for(int i=0;i<m;i++)
-		{
-			int x=in.nextInt();
-			int y=in.nextInt();
-			a[x][y]=1;
-			a[y][x]=1;//1代表连接
-		}
-		int t=n;
-		b[0]=100;
-		trackback(a,b,m,n,t);//回溯
-		System.out.println(b[0]);
+【输出样例】
+48
+ */
 
-	}
+public class PicColor {
+    public static Set<String> set = new HashSet<String>();
+    public static int n,k,m,a,b,count=0;
+    public static int [] [] num;
+    public static int []  color;
+    public static boolean [] bool;
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+        m = sc.nextInt();
+        num = new int [n+1][n+1];
+        color = new int [n+1];
+        bool = new boolean [m+1];
+        for (int i = 0; i < k; i++) {
+            a=sc.nextInt();
+            b=sc.nextInt();
+            num[a][b]=num[b][a]=1;
+        }
+        f(1,"");
+        System.out.println(count);
 
-	private static void trackback(int[][] a, int[] b, int m, int n,int t) {
-		int tmp=n;
-		int state=0,i,j;
-		if(tmp<=0)
-		{
-			int temp=b[1];
-			for(int r=1;r<=t;r++)
-			{
-				if(temp<b[r])
-					temp=b[r];
+    }
+    public static void f(int ren,String s){
+        if(ren==n+1){
+            set.add(s);
+            count++;
+            return;
+        }
+        for (int i = 1; i <=m; i++) {
+            //	if(!bool[i]){
+            int boo = 0;
+            for (int j = 1; j <=n; j++) {
+                if(num[ren][j]==1 && i==color[j] ){
+                    boo=1;
+                    break;
+                }
+            }
+            if(boo==0){
 
-			}
-			if(temp<b[0])//b[0]代表最小的颜色,temp代表此次的颜色种数
-				b[0]=temp;
-			return ;
-		}
-		for( i=1;i<=t;i++)//颜色
-		{
-			state=0;
-			b[tmp]=i;
-			for( j=1;j<=t;j++)//边的连接
-			{
+                bool[i]=true;
+                color[ren]=i;
+                f(ren+1,s+i);
+                color[ren]=0;
+                bool[i]=false;
+            }
+            //	}
+        }
 
-				if(a[tmp][j]==1&&b[j]!=b[tmp])
-				{
-					continue;//trackback(a,b,m,n-1,t);
-				}
-				else if(b[j]==b[tmp]&&a[tmp][j]==1)
-				{
-					if(j==tmp)//如果是本身与自身的连接那么不管
-						continue;
-					state=1;
-					break;
-				}
-			}
-			if(state!=1)
-			{
-
-				trackback(a,b,m,n-1,t);
-			}
-		}
-
-	}
+    }
 
 }
 
- */
+
