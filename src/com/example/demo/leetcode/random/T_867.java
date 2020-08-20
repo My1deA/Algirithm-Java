@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.mye;
+package com.example.demo.leetcode.random;
 
 
 // 867 转置矩阵
