@@ -1,6 +1,9 @@
 package com.example.demo.structure;
 
+
+
 public class KMP {
+
 
     public static void main(String[] args) {
         String str="bacbababadababacambabacaddababacasdsd";
