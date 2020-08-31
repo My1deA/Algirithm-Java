@@ -1,8 +1,7 @@
-package com.example.demo.test.my;
+package com.example.demo.test.my.mutli;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.TimeUnit;
 
 //多线程排序

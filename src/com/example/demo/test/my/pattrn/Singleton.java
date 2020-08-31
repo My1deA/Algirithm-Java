@@ -1,4 +1,4 @@
-package com.example.demo.test.my;
+package com.example.demo.test.my.pattrn;
 
 public class Singleton {
 

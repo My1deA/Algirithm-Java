@@ -1,6 +1,4 @@
-package com.example.demo.test.my;
-
-import java.util.concurrent.RecursiveTask;
+package com.example.demo.test.my.mutli;
 
 //多线程求和
 public class MutliAdd {

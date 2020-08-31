@@ -1,4 +1,4 @@
-package com.example.demo.test.my;
+package com.example.demo.test.my.pattrn;
 
 /*第二次判空是防止多线程情况下发生以下情况:
         a.假设：线程A已经经过第一次判断，判断singleton=null，准备进入同步代码块.
