@@ -1,4 +1,4 @@
-package com.example.demo.test.my.pattrn;
+package com.example.demo.concurrent.my.pattrn;
 
 public enum EnumSingletion {
 

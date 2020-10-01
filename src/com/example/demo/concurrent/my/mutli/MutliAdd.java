@@ -1,4 +1,4 @@
-package com.example.demo.test.my.mutli;
+package com.example.demo.concurrent.my.mutli;
 
 //多线程求和
 public class MutliAdd {

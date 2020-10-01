@@ -1,4 +1,4 @@
-package com.example.demo.test.my.mutli;
+package com.example.demo.concurrent.my.mutli;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;

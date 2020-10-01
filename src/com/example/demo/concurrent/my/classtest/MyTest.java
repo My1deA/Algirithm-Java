@@ -1,4 +1,4 @@
-package com.example.demo.test.my.classtest;
+package com.example.demo.concurrent.my.classtest;
 
 public class MyTest {
     public int x;

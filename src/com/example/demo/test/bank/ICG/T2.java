@@ -1,4 +1,4 @@
-package com.example.demo.test.bank;
+package com.example.demo.test.bank.ICG;
 
 import java.util.Scanner;
 import java.util.Stack;
