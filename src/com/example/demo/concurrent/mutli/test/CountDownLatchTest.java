@@ -1,4 +1,4 @@
-package com.example.demo.concurrent.mutli;
+package com.example.demo.concurrent.mutli.test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

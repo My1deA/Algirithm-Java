@@ -1,17 +1,18 @@
-package com.example.demo.concurrent.mutli;
+package com.example.demo.concurrent.mutli.test2;
+
+import com.example.demo.concurrent.mutli.test.MutliSort;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.TimeUnit;
 
-//多线程排序
-public class MutliSort extends RecursiveAction {
+public class MyRecusiveAction extends RecursiveAction {
     private int[] a;
     private int start;
     private int end;
     private int threadHold=2;
 
-    public MutliSort(int[] a,int start,int end){
+    public MyRecusiveAction(int[] a,int start,int end){
         this.a=a;
         this.start=start;
         this.end=end;
@@ -85,6 +86,5 @@ public class MutliSort extends RecursiveAction {
 
 
     }
-
 
 }
