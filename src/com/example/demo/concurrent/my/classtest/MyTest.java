@@ -25,5 +25,10 @@ public class MyTest {
         //MyTest.innerTest  test=new innerTest();
         MyTest myTest=new MyTest();
         MyTest.innerTest2 innerTest2=myTest.new innerTest2();
+
+        //正数四舍五入 负数五舍六入
+        System.out.println(Math.round(-1.6));
+        //无论正负 取最大
+        System.out.println(Math.ceil(-1.9));
     }
 }
