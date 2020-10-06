@@ -37,6 +37,7 @@ public class Solution36_H {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
                     int num = board[i][j] - '1';
+                    //
                     int blockIndex = i / 3 * 3 + j / 3;
                     if (row[i][num] || col[j][num] || block[blockIndex][num]) {
                         return false;
