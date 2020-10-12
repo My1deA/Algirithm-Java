@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.top.part_4;
+package com.example.demo.leetcode.top.part_1;
 
 public class T69 {
     public static int mySqrt(int x) {

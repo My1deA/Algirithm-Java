@@ -1,7 +1,6 @@
-package com.example.demo.leetcode.top.part_2;
+package com.example.demo.leetcode.top.part_1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

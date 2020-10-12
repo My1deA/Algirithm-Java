@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.top.part_2;
+package com.example.demo.leetcode.top.part_1;
 
 import java.util.concurrent.ConcurrentHashMap;
 

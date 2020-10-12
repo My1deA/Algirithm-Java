@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.top.part_3;
+package com.example.demo.leetcode.top.part_1;
 
 import sun.applet.Main;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //17 电话号码字母组合
-public class Solution17 {
+public class Solution17_2 {
 
     private static List<String> list=new ArrayList<>();
 

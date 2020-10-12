@@ -1,4 +1,4 @@
-package com.example.demo.leetcode.top.part_3;
+package com.example.demo.leetcode.top.part_1;
 
 // 36 有效数独
 /*判断一个9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
