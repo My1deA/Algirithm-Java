@@ -9,4 +9,12 @@ public class MyTest2 {
             }
         }
     }
+
+    public static void main(String[] args) {
+        double a=0.10;
+        double b=0.40;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(b-a);
+    }
 }

@@ -1,39 +1,33 @@
 package com.example.demo.test.test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class CharSortSet {
-    public ArrayList<String> Permutation(String str){
-
-        ArrayList<String> list = new ArrayList<String>();
-        if(str!=null && str.length()>0){
-            PermutationHelper(str.toCharArray(),0,list);
-            Collections.sort(list);
-        }
-        return list;
+    List<String> res = new LinkedList<>();
+    char[] c;
+    public String[] permutation(String s) {
+        c = s.toCharArray();
+        dfs(0);
+        return res.toArray(new String[res.size()]);
     }
-    private void PermutationHelper(char[] chars,int i,ArrayList<String> list){
-        if(i == chars.length-1){
-            list.add(String.valueOf(chars));
-        }else{
-            Set<Character> charSet = new HashSet<Character>();
-            for(int j=i;j<chars.length;++j){
-                if(j==i || !charSet.contains(chars[j])){
-                    charSet.add(chars[j]);
-                    swap(chars,i,j);
-                    PermutationHelper(chars,i+1,list);
-                    swap(chars,j,i);
-                }
-            }
+    void dfs(int x) {
+        if(x == c.length - 1) {
+            res.add(String.valueOf(c)); // 添加排列方案
+            return;
+        }
+        HashSet<Character> set = new HashSet<>();
+        for(int i = x; i < c.length; i++) {
+            if(set.contains(c[i])) continue; // 重复，因此剪枝
+            set.add(c[i]);
+            swap(i, x); // 交换，将 c[i] 固定在第 x 位
+            dfs(x + 1); // 开启固定第 x + 1 位字符
+            swap(i, x); // 恢复交换
         }
     }
-
-    private void swap(char[] cs,int i,int j){
-        char temp = cs[i];
-        cs[i] = cs[j];
-        cs[j] = temp;
+    void swap(int a, int b) {
+        char tmp = c[a];
+        c[a] = c[b];
+        c[b] = tmp;
     }
+
 }
