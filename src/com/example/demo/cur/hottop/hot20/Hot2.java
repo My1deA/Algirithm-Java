@@ -1,4 +1,4 @@
-package com.example.demo.cur.hottop;
+package com.example.demo.cur.hottop.hot20;
 
 import com.example.demo.cur.hottop.share.ListNode;
 

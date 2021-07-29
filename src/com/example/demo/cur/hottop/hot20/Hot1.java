@@ -1,4 +1,4 @@
-package com.example.demo.cur.hottop;
+package com.example.demo.cur.hottop.hot20;
 
 import java.util.Scanner;
 
